@@ -12,9 +12,9 @@ app.use(cors())
 
 
 const addAnalytics = (request, response) => {
-  const { browserLanguage, platform, browserType, latitude, longitude } = request.body
+  const { language, platform, userAgent, latitude, longitude, ipAddress,  city, country} = request.body
 
-  pool.query('INSERT INTO books (browserLanguage, platform, browserType, latitude, longitude) VALUES ($1, $2)', [browserLanguage, platform, browserType, latitude, longitude], error => {
+  pool.query('INSERT INTO analyticsTable (language, platform, userAgent, latitude, longitude, ipAddress,  city, country) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)', [language, platform, userAgent, latitude, longitude, ipAddress,  city, country], error => {
     if (error) {
       throw error
     }
