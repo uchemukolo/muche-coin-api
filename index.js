@@ -27,5 +27,17 @@ app
   // POST endpoint
   .post(addAnalyticsData)
 
+  // GET endpoint
+  .route('/analytics')
+  .get(addAnalyticsData)
+
+  // GET endpoint
+  .route(`/analytics-${id}`)
+  .put(addAnalyticsData)
+  
+  // DELETE endpoint
+  .route(`/analytics-${id}`)
+  .get(addAnalyticsData)
+
 // Start server
 app.listen(port, () => console.log(`server is up and running on localhost: ${port}`));
